@@ -17,12 +17,24 @@ namespace CalculatorWUI
             Console.Write("Type the operator:");
             string operation = Console.ReadLine();
 
-            Console.Write("Type the 2nd number:");
-            int number2 = int.Parse(Console.ReadLine());            
+            if (operation.ToLower().Substring(0,1) != "v")
+            {
+                Console.Write("Type the 2nd number:");
+                int number2 = int.Parse(Console.ReadLine());
 
-            Operations calculator = new Operations(number1, number2, operation);
+                Operations calculator = new Operations(number1, number2, operation);
 
-            Console.WriteLine(calculator);
+                Console.WriteLine(calculator);
+            }
+            else
+            {
+                Operations calculator = new Operations(number1, operation);
+
+                Console.WriteLine(calculator);
+            }          
+                      
+
+            
 
             //Do another operation
 

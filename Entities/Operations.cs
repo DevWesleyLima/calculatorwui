@@ -22,7 +22,13 @@ namespace CalculatorWUI.Entities
             Number2 = number2;
             Operation = operation;
         }
-     
+
+        public Operations(int number1,string operation)
+        {
+            Number1 = number1;
+            Operation = operation;
+        }
+
         public double Operator()
         {  
             return Operation switch
@@ -33,6 +39,9 @@ namespace CalculatorWUI.Entities
                 "/"  => Number1 / Number2,
                 "+%" => Number1 + (Number1 * (Number2 / 100)),
                 "-%" => Number1 - (Number1 * (Number2 / 100)),
+                "x"  => Math.Pow(Number1, Number2),
+                "v2" => Math.Sqrt(Number1),
+                "v3" => Math.Cbrt(Number1),
                 _ => 0.00,
             };            
         }
@@ -41,12 +50,15 @@ namespace CalculatorWUI.Entities
         {
             return Operation switch
             {
-                "+" => "Sum",
-                "-" => "Subtraction",
-                "*" => "Multiplication",
-                "/" => "Division",
+                "+"  => "Sum",
+                "-"  => "Subtraction",
+                "*"  => "Multiplication",
+                "/"  => "Division",
                 "+%" => "Sum Percentage",
                 "-%" => "Subtraction Percentage",
+                "x"  => "Exponentiation",
+                "v2" => "Square root",
+                "v3" => "Cube root",
                 _ => "",
             };
         }
