@@ -29,7 +29,7 @@ namespace CalculatorWUI.Entities
             Operation = operation;
         }
 
-        public double Operator()
+        public double PerformOperation()
         {  
             return Operation switch
             {
@@ -46,7 +46,7 @@ namespace CalculatorWUI.Entities
             };            
         }
         
-        public string StrOperations()
+        public string GetOperationsName()
         {
             return Operation switch
             {
@@ -66,9 +66,9 @@ namespace CalculatorWUI.Entities
         public override string ToString()
         {
 
-            return "Operation: " + StrOperations() 
+            return "Operation: " + GetOperationsName() 
                 + '\n'
-                + "Result: " + Operator().ToString("0,0.00", CultureInfo.InvariantCulture);
+                + "Result: " + PerformOperation().ToString("0,0.00", CultureInfo.InvariantCulture);
         }
 
     }
